@@ -1,14 +1,15 @@
 from pathlib import Path
 import django_heroku
 import dj_database_url
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'yhf6fq))%v77wcxk_b+gu7dapcr5&*zmw8yqw(rctz%%^dw+!&'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', 'https://pipes-project.herokuapp.com']
 
 
 # Application definition
@@ -20,6 +21,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'ckeditor',
+    'ckeditor_uploader',
 
     # apps
     'pipe',
@@ -62,8 +66,15 @@ WSGI_APPLICATION = 'engine.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -106,6 +117,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # MEDIA
 MEDIA_URL = "/media/"
 MEDIA_ROOT = (BASE_DIR / "media")
+
+# CKEDITOR
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 django_heroku.settings(locals())

@@ -1,0 +1,17 @@
+.header {
+    background: #22252D;
+    
+    a {
+        color:#b8b8b8;
+        font-weight: bold; 
+        font-size: 20px;
+
+        &:hover {
+            color: #ccc;
+        }
+
+        &:active {
+            color: #4AD295;
+        }
+    }
+}
