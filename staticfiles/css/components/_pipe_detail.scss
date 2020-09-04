@@ -1,0 +1,36 @@
+.pipe-detail {
+    &__container {
+        width: 800px;
+        margin: 0 auto;
+    }
+    
+    &__slider {
+        max-width: 600px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    &__title {
+        text-align: center;
+        margin: 40px 0;
+    }
+
+    &__image {
+        // max-width: 600px;
+        width: 100%;
+        height: auto;
+    }
+
+    &__description {
+        word-wrap: break-word;
+    }
+
+    .slider .indicators .indicator-item.active {
+        background: #000;
+    }
+
+    &__content {
+        margin: 60px 0;
+    }
+}

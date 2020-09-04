@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pipe-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="pipe-detail__item">
+                    <h3 class="pipe-detail__title">{{ pipe.title }}</h3>
+                    <div class="pipe-detail__slider slider">
+                        <ul class="slides">
+                            {% for image in pipe.pipe_images.all %}
+                            <li>
+                                <img class="pipe-detail__image" src="{{ image.image.url }} " alt="">
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="pipe-detail__content">
+                        <p class="pipe-detail__description">{{ pipe.description }}</p>
+                        <p class="pipe-detail__price">{{ pipe.price }} <span>Руб.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

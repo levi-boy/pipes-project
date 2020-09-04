@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="pipe-list">
+    <div class="container">
+        <div class="pipe-list__items row">
+            {% for pipe in pipes %}
+            {% if pipe.is_active %}
+            <a href="{{ pipe.get_absolute_url }}">
+                <div class="col s12 m6 l4">
+                    <div class="pipe-list__item card">
+                        <h3 class="pipe-list__title card-title">{{ pipe.title }}</h3>
+                        {% for image in pipe.pipe_images.all %}
+                        {% if image.is_main %}
+                        <img class="pipe-list__image" src="{{ image.image.url }} " alt="">
+                        {% endif %}
+                        {% endfor %}
+                        <p class="pipe-list__price card-title">{{ pipe.price }} <span>Руб.</span></p>
+                    </div>
+                </div>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
