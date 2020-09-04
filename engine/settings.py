@@ -101,12 +101,12 @@ USE_TZ = True
 
 # STATIC
 STATIC_URL = "/static/"
-STATICFILES_DIRS = (BASE_DIR, "staticfiles")
+STATICFILES_DIRS = (BASE_DIR, "static")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MEDIA
 MEDIA_URL = "/media/"
-MEDIA_ROOT = (BASE_DIR / "mediafiles")
+MEDIA_ROOT = (BASE_DIR / "media")
 
 
 django_heroku.settings(locals())
