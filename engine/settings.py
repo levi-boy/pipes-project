@@ -2,7 +2,6 @@ from pathlib import Path
 import django_heroku
 import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'yhf6fq))%v77wcxk_b+gu7dapcr5&*zmw8yqw(rctz%%^dw+!&'
