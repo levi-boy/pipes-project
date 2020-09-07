@@ -21,7 +21,11 @@
                 <div class="pipe-detail__content" style="color:white">
                     <div class="container">
                         <p class="pipe-detail__description">{{ pipe.description|safe }}</p>
-                        <p class="pipe-detail__price">ЦЕНА: {{ pipe.price }} <span>Руб.</span></p>
+                        {% if pipe.price == 0 %}
+                            <p class="pipe-detail__price">цена: <i>договорная</i></p>
+                        {% else %}
+                            <p class="pipe-detail__price">цена: {{ pipe.price }} <span>Руб.</span></p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

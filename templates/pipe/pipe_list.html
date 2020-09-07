@@ -19,7 +19,11 @@
                         </div>
                         {% endif %}
                         {% endfor %}
-                        <p class="pipe-list__price card-title">{{ pipe.price }} <span>Руб.</span></p>
+                        {% if pipe.price == 0 %}
+                            <p class="pipe-list__price card-title">договорная</span></p>
+                        {% else %}
+                            <p class="pipe-list__price card-title">{{ pipe.price }} <span>Руб.</span></p>
+                        {% endif %}
                     </div>
                 </div>
             </a>

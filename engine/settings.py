@@ -5,11 +5,14 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'yhf6fq))%v77wcxk_b+gu7dapcr5&*zmw8yqw(rctz%%^dw+!&')
+SECRET_KEY = 'yhf6fq))%v77wcxk_b+gu7dapcr5&*zmw8yqw(rctz%%^dw+!&'
+# SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG', True)
+DEBUG = True
+# DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = ['localhost', 'https://pipes-project.herokuapp.com']
+ALLOWED_HOSTS = ['localhost']
+# ALLOWED_HOSTS = ['https://pipes-project.herokuapp.com']
 
 
 # Application definition
@@ -65,16 +68,16 @@ WSGI_APPLICATION = 'engine.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
